@@ -1,9 +1,12 @@
 <?php require_once "header.php";
 require_once "connect.php";
-if(isset($_GET["action"])){
+if(isset($_GET["action"]) && isset($_SESSION["userID"])){
     if($_GET["action"]=="add"){
     $itemID=$_GET["itemID"];
-    $userID=$_SESSION["userID"];
+    if(isset($_SESSION["userID"])){
+        $userID=$_SESSION["userID"];
+        }
+        else{$userID=4;}
     $selectStmt="select * from cart where itemID='$itemID' and userID='$userID'";
     $selectRes=$connect->query($selectStmt);
     
@@ -23,7 +26,22 @@ if(isset($_GET["action"])){
     }
     
     
-    }?>
+    }
+    
+    else if(isset($_GET["action"]) && !isset($_SESSION["userID"])){
+        $itemID=$_GET["itemID"];
+        if(isset($_COOKIE['cookie'])){
+            foreach ($_COOKIE['cookie'] as $name => $value) {
+                if($name==$itemID){
+                $value = $value+1;
+                }
+            }
+        }
+        else{
+        setcookie("cookie[$itemID]", 1);
+        }
+    }
+    ?>
 
 <!DOCTYPE html >
 <html>

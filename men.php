@@ -1,11 +1,10 @@
 <?php require_once "header.php";
 require_once "connect.php";
 
-if(isset($_GET["action"])){
+if(isset($_GET["action"]) && isset($_SESSION["userID"])){
     if($_GET["action"]=="add"){
-        if(isset($_SESSION['userID'])){
     $itemID=$_GET["itemID"];
-    $userID=$_SESSION["userID"];
+   
     $selectStmt="select * from cart where itemID='$itemID' and userID='$userID'";
     $selectRes=$connect->query($selectStmt);
     
@@ -26,28 +25,21 @@ if(isset($_GET["action"])){
     
     
     }
-}
-else {
+
+    else if(isset($_GET["action"]) && !isset($_SESSION["userID"])){
         $itemID=$_GET["itemID"];
-        $userID=$_SESSION["userID"];
-        $selectStmt="select * from cart where itemID='$itemID' and userID=6";
-        $selectRes=$connect->query($selectStmt);
-        
-        if($selectRes->num_rows==0){
-          $insertCart="insert into cart (itemID,quantity,userID) values
-          ('$itemID',1,6)";
-        
-          $res=$connect->query( $insertCart);
+        if(isset($_COOKIE['cookie'])){
+            foreach ($_COOKIE['cookie'] as $name => $value) {
+                if($name==$itemID){
+                $value = $value+1;
+                } 
+            } 
         }
         else{
-        
-          $updateStmt="update cart set quantity=quantity+1  where itemID='$itemID' and userID='6'";
-          $updateRes=$connect->query( $updateStmt);
+        setcookie("cookie[$itemID]", 1);
         }
-        
-        
-        }
-
+    }
+    
     ?>
 <!doctype html>
 <html>
@@ -181,11 +173,11 @@ else {
             </div>
            
 
-  <div id="products">
+            <div id="products">
         
-    <div class="row">
- <?php
-$getItems="select * from item where catID=1";
+                <div class="row">
+                <?php
+            $getItems="select * from item where catID=1";
 $itemRes=$connect->query($getItems);
 
 while($row=$itemRes->fetch_assoc()){
@@ -207,7 +199,7 @@ while($row=$itemRes->fetch_assoc()){
                 </div>
                 
             </div>
-        
+           
         </div>
     </div>
     <div>

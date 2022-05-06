@@ -29,10 +29,8 @@
         </button>
         <div class="dropdown-content">
           <a href="updateProfile.php">Edit profile</a>
-
           <a href="cart.php">cart</a>
-          <a href="sign-in.php">log out</a>
-          
+          <a href="logout.php">log out</a>
         </div>
     </div></li>
    
@@ -55,10 +53,9 @@
         <li><a href="#">Blog</a></li>
         <li><a href="men.php">Men</a></li>
         <li><a href="women.php">Women</a></li>
-
+       <li> <a href="cart.php">cart</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="cart.php">cart</a></li>
-
+        
    
     </ul>
     
