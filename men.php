@@ -1,10 +1,12 @@
 <?php require_once "header.php";
 require_once "connect.php";
-
 if(isset($_GET["action"]) && isset($_SESSION["userID"])){
     if($_GET["action"]=="add"){
     $itemID=$_GET["itemID"];
-   
+    if(isset($_SESSION["userID"])){
+        $userID=$_SESSION["userID"];
+        }
+        else{$userID=4;}
     $selectStmt="select * from cart where itemID='$itemID' and userID='$userID'";
     $selectRes=$connect->query($selectStmt);
     
@@ -25,22 +27,22 @@ if(isset($_GET["action"]) && isset($_SESSION["userID"])){
     
     
     }
-
+    
     else if(isset($_GET["action"]) && !isset($_SESSION["userID"])){
         $itemID=$_GET["itemID"];
         if(isset($_COOKIE['cookie'])){
             foreach ($_COOKIE['cookie'] as $name => $value) {
                 if($name==$itemID){
                 $value = $value+1;
-                } 
-            } 
+                }
+            }
         }
         else{
         setcookie("cookie[$itemID]", 1);
         }
     }
-    
     ?>
+    
 <!doctype html>
 <html>
 
@@ -175,9 +177,9 @@ if(isset($_GET["action"]) && isset($_SESSION["userID"])){
 
             <div id="products">
         
-                <div class="row">
-                <?php
-            $getItems="select * from item where catID=1";
+        <div class="row">
+<?php
+$getItems="select * from item where catID=1";
 $itemRes=$connect->query($getItems);
 
 while($row=$itemRes->fetch_assoc()){
