@@ -23821,3 +23821,11 @@ textarea.form-control {
     width: 50%;
     margin: 0 auto;
 }
+
+
+
+/*CheckOut*/
+a.checkOutLink {
+    color: white;
+    text-decoration: none;
+}

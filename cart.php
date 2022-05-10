@@ -91,7 +91,7 @@ while($row=$selectRes->fetch_assoc()){
 </tr>
 <?php } ?>
 </table>
-<div style="margin-top:50px;">  <button class="confirmOrder" type="submit"> <a href="cart.php?action=confirmOrder">Confirm order</a></button></div>
+<div style="margin-top:50px;">  <button class="confirmOrder" type="submit"> <a href="checkOut.php?action=confirmOrder">Confirm order</a></button></div>
 <?php } else if(isset($_COOKIE["cookie"])) { ?>
 
   <table width="70%" style="margin-top:50px;">

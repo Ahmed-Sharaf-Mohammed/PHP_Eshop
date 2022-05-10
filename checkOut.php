@@ -18,10 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/checkout.css">
-    <link rel="stylesheet" href="css/Header.css">
-    <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/up.css">
-    <link rel="stylesheet" href="css/search.css">
+  
+
 
 </head>
 
@@ -40,35 +38,33 @@
                 <form class="form-card">
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-group"> <input type="text" class="form-control p-0" id="number" required><label class="form-control-placeholder p-0" for="number">CardNumber</label> </div>
+                            <div class="form-group"><label class="form-control-placeholder p-0" for="number">CardNumber</label>
+                            <input type="text" class="form-control p-0" id="number" required> </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-group"> <input type="text" class="form-control p-0" id="name" required><label class="form-control-placeholder p-0" for="name">Cardholder'sName</label> </div>
+                            <div class="form-group"><label class="form-control-placeholder p-0" for="name">Cardholder'sName</label>
+                            <input type="text" class="form-control p-0" id="name" required> </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-4 col-12">
-                            <div class="form-group"> <input type="text" class="form-control p-0" id="sdate" required><label class="form-control-placeholder p-0" for="sdate">StartDate</label> </div>
+                            <div class="form-group"><label class="form-control-placeholder p-0" for="sdate">StartDate</label> 
+                            <input type="text" class="form-control p-0" id="sdate" required></div>
                         </div>
                         <div class="col-sm-4 col-12">
-                            <div class="form-group"> <input type="text" class="form-control p-0" id="expdate" required><label class="form-control-placeholder p-0" for="expdate">ExpirationDate</label> </div>
+                            <div class="form-group"> <label class="form-control-placeholder p-0" for="expdate">ExpirationDate</label>
+                            <input type="text" class="form-control p-0" id="expdate" required> </div>
                         </div>
                         <div class="col-sm-4 col-12">
-                            <div class="form-group"> <input type="password" class="form-control p-0" id="passw" required><label class="form-control-placeholder p-0" for="passw">CVV</label> </div>
+                            <div class="form-group"><label class="form-control-placeholder p-0" for="passw">CVV</label>
+                            <input type="password" class="form-control p-0" id="passw" required> </div>
                         </div>
                     </div>
-                    <div class="row lrow mt-4 mb-3">
-                        <div class="col-sm-8 col-12">
-                            <h3>Grand Total:</h3>
-                        </div>
-                        <div class="col-sm-4 col-12">
-                            <h5>&#36;1,449.00</h5>
-                        </div>
-                    </div>
+                   
                     <div class="row mb-2">
-                        <div class="col-sm-12"> <button type="button"  class="btn btn-primary btn-block  hun">Pay</button> </div>
+                        <div class="col-sm-12"> <button type="button"  class="btn btn-primary btn-block  hun"><a class="checkOutLink" href="done.php">Pay</a></button> </div>
                     </div>
                 </form>
             </div>

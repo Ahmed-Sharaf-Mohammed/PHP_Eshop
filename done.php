@@ -6,9 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
 </head>
 <body>
-
-
-
+<h1>Done</h1>
 <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

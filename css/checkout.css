@@ -1,0 +1,17 @@
+a.checkOutLink {
+    color: white;
+    text-decoration: none;
+}
+
+.container-fluid.checkOut {
+    width: 47%;
+}
+
+.col-sm-12 {
+    margin-top: 25px;
+}
+
+button.btn.btn-primary.btn-block.hun {
+    width: 109px;
+    font-size: 20px;
+}
