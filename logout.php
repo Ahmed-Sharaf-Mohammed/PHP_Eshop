@@ -8,6 +8,6 @@ session_unset();
 
 session_destroy(); 
 
-header('location: http://localhost/task-8/');
+header('location: http://localhost/ecommerce-project/');
 
 ?>

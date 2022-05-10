@@ -18,7 +18,7 @@ $deleteRes=$connect->query($deleteStmt);
   else{
     $itemID=$_GET['itemID'];
     setcookie("cookie[$itemID]", null);
-    header('location: http://localhost/task-8/cart.php');
+    header('location: http://localhost/ecommerce-project/cart.php');
   }
 
 }
@@ -48,7 +48,7 @@ else if($_GET['action']=="confirmOrder"){
 
   $deleteRes=$connect->query($deleteCart);
 
-  header('location: http://localhost/task-8/home.php');
+  header('location: http://localhost/ecommerce-project/home.php');
 }
 
 }
