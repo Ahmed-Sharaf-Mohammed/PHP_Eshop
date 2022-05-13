@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.done {
+    width: 100%;
+    height: 90vh;
+
+}
+
+.doneBox {
+    width: 500px;
+    height: 200px;
+    border-radius: 44px;
+    background: #e0e0e0;
+    box-shadow: 32px 32px 45px #bcbcbc, -32px -32px 45px #ffffff;
+    position: relative;
+    top: 25%;
+    left: 32%;
+}
+
+.doneBox h1{
+    display: inline-block;
+    margin-left: 24%;
+    margin-top: 4%;
+    font-size: 71px;
+    color: black;
+}
+
+.doneSign {
+    position: absolute;
+    left: 70%;
+    font-size: 48px;
+    top: 17%;
+    color: #05c305;
+}
+
+.backToHome {
+    display: inline-block;
+    position: absolute;
+    top: 68%;
+    left: 38%;
+    text-decoration: none;
+    font-size: 22px;
+}
