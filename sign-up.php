@@ -18,7 +18,7 @@ if($_POST) {
         $insertQuery= "insert into user (Fname, Lname, username, password, phone, address) 
         values ('$firstName','$lastName','$userName','$password','$phoneNumber','$address')";
         $insertResult=$connect->query($insertQuery);
-        header('location: http://localhost/ecommerce-project/sign-in.php');
+        header('location: http://localhost/SW2/sign-in.php');
 
     }
 }

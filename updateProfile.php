@@ -18,7 +18,7 @@ if($_POST) {
     if($res->num_rows==0){
         $updateStmt="update user set Fname='$firstName',Lname='$lastName',username='$userName',phone='$phoneNumber',address='$address',password='$password' where id='$userID'";
         $updateRes=$connect->query($updateStmt);
-        header('location: http://localhost/ecommerce-project/home.php');
+        header('location: http://localhost/SW2/home.php');
 
     }
 }
