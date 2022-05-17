@@ -1,19 +1,19 @@
-
 <?php 
 require_once "header.php"; 
-require_once "connect.php"; 
+require_once "cartClass.php"; 
+require_once "OrderClass.php"; 
+$order=new Order();
+$cart=new cart();
 if(isset($_SESSION["userID"])){
   $userID=$_SESSION["userID"];
   }
   
 if(isset($_GET['action'])){
 
-if($_GET['action']=="delete"){
-  if ( !isset($_COOKIE['cookie'])){
+    if($_GET['action']=="delete"){
+      if ( !isset($_COOKIE['cookie'])){
 $itemID=$_GET['itemID'];
-
-$deleteStmt="delete from cart where itemID='$itemID' and userID='$userID'";
-$deleteRes=$connect->query($deleteStmt);
+$cart->deleteFromCart($itemID,$userID,$connect);
   }
   else{
     $itemID=$_GET['itemID'];
@@ -24,31 +24,7 @@ $deleteRes=$connect->query($deleteStmt);
 }
 else if($_GET['action']=="confirmOrder"){
 
-  $insertInvoice="insert into invoice (userID) values ('$userID')";
-  if($connect->query($insertInvoice)){
-    $invoiceID=$connect->insert_id;
-  }
-  $selectStmt="select cart.itemID as i,cart.quantity as q,item.price as p from cart inner join item on 
-  item.id=cart.itemID
-  where userID='$userID'";
-  $cartRes=$connect->query($selectStmt);
-  while($row=$cartRes->fetch_assoc()){
-    $item=$row["i"];
-    $price=$row["p"];
-    $quantity=$row["q"];
-
-    $insertQuery="insert into orders(itemID,price,quantity,invoiceID)
-    values('$item','$price',' $quantity','$invoiceID')";
-
-    $insertRes=$connect->query($insertQuery);
-   
-  }
-
-  $deleteCart="delete from cart where userID='$userID'";
-
-  $deleteRes=$connect->query($deleteCart);
-
-  header('location: http://localhost/SW2/home.php');
+  $order->confirmOrder($userID,$connect);
 }
 
 }
@@ -91,7 +67,7 @@ while($row=$selectRes->fetch_assoc()){
 </tr>
 <?php } ?>
 </table>
-<div style="margin-top:50px;">  <button class="confirmOrder" type="submit"> <a href="checkOut.php?action=confirmOrder">Confirm order</a></button></div>
+<div style="margin-top:50px;">  <button class="confirmOrder" type="submit"> <a href="cart.php?action=confirmOrder">Confirm order</a></button></div>
 <?php } else if(isset($_COOKIE["cookie"])) { ?>
 
   <table width="70%" style="margin-top:50px;">
