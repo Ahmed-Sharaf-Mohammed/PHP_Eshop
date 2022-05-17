@@ -4,7 +4,8 @@ require_once "connect.php";
 if(isset($_SESSION["userID"]) && isset($_COOKIE['cookie'])){
     $userID=$_SESSION["userID"];
     
-        foreach ($_COOKIE['cookie'] as $name => $value) {
+        
+		foreach ($_COOKIE['cookie'] as $name => $value) {
             $selectStmt="select * from cart where itemID='$name' and userID='$userID'";
             $selectRes=$connect->query($selectStmt);
             
