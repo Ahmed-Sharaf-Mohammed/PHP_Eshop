@@ -9,7 +9,7 @@ if($_POST){
     if($result->num_rows==1){
         $row=$result->fetch_assoc();
         $_SESSION['userID']=$row['id'];
-        header('location: http://localhost/ecommerce-project/home.php');
+        header('location: http://localhost/SW2/home.php');
 
             }
 }
