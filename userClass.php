@@ -29,7 +29,7 @@ class user{
     $insertQuery= "insert into user (Fname, Lname, username, password, phone, address) 
     values ('$this->firstName','$this->lastName','$this->userName','$this->password','$this->phoneNumber','$this->address')";
     $insertResult=$connect->query($insertQuery);
-    header('location: http://localhost/ecommerce-project/sign-in.php');
+    header('location: http://localhost/SW2/sign-in.php');
       }
 
      }
@@ -44,7 +44,7 @@ class user{
     if($res->num_rows==0){
         $updateStmt="update user set Fname='$this->firstName',Lname='$this->lastName',username='$this->userName',phone='$this->phoneNumber',address='$this->address',password='$this->password' where id='$userID'";
         $updateRes=$connect->query($updateStmt);
-        header('location: http://localhost/ecommerce-project/home.php');
+        header('location: http://localhost/SW2/home.php');
     }
 
      }
