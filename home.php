@@ -1,7 +1,6 @@
 <?php 
 require_once "header.php"; 
 require_once "connect.php"; 
-
 if(isset($_SESSION["userID"]) && isset($_COOKIE['cookie'])){
     $userID=$_SESSION["userID"];
     
