@@ -1,6 +1,7 @@
 <?php 
 
 require_once "connect.php";
+require_once "userClass.php";
 
 if($_POST) {
     $firstName=$_POST['Fname'];
@@ -10,21 +11,10 @@ if($_POST) {
     $address=$_POST['address'];
     $password=$_POST['pass'];
     $confirmPass=$_POST['confirmPass'];
-
-    if($password==$confirmPass){
-        $selectStmt="select * from user where username='$userName' or phone='$phoneNumber' ";
-        $res=$connect->query($selectStmt);
-    if($res->num_rows==0){
-        $insertQuery= "insert into user (Fname, Lname, username, password, phone, address) 
-        values ('$firstName','$lastName','$userName','$password','$phoneNumber','$address')";
-        $insertResult=$connect->query($insertQuery);
-        header('location: http://localhost/SW2/sign-in.php');
-
+    $user=new user();
+    $user->setUserData($firstName,$lastName,$userName,$phoneNumber,$address,$password,$confirmPass);
+    $user->insertNewUser($connect);
     }
-}
-
-}
-
 ?>
 
 

@@ -2,15 +2,14 @@
 require_once "connect.php";
 session_start();
 if($_POST){
-
-    $email=$_POST['username'];
+    $username=$_POST['username'];
     $pass=$_POST['password'];
-    $selectStatement = "select * from user where username='$email' and password='$pass' ";
+    $selectStatement = "select * from user where username='$username' and password='$pass' ";
     $result=$connect->query($selectStatement);
     if($result->num_rows==1){
         $row=$result->fetch_assoc();
         $_SESSION['userID']=$row['id'];
-        header('location: http://localhost/SW2/home.php');
+        header('location: http://localhost/ecommerce-project/home.php');
 
             }
 }
@@ -88,9 +87,6 @@ if($_POST){
                                 <button type="submit" class="btn btn-primary rounded submit p-3 px-5" style="background-color: #ca1515 !important;">SIGN IN</button>
                             </div>
                         </form>
-
-
-
                     </div>
                 </div>
             </div>
@@ -98,62 +94,6 @@ if($_POST){
     </section>
     
 
-    <!-- FOOTER -->
-    <footer class="w-100 py-4 flex-shrink-0" style="background-color: transparent;">
-        <div class="container py-4">
-            <div class="row gy-4 gx-5">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="h1 text-black" style="margin-bottom:20px;"><img src="img/download.webp"></h5>
-                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                    <img src="img/xpayment-1.png.pagespeed.ic.n2kKvTDVR3.webp" class="rounded float-start" style="padding:0 5px;">
-                    <img src="img/xpayment-2.png.pagespeed.ic.ZRduM6EAng.webp" class="rounded float-start" style="padding:0 5px;">
-                    <img src="img/xpayment-3.png.pagespeed.ic.WyXEccmJ7c.webp" class="rounded float-start" style="padding:0 5px;">
-                    <img src="img/xpayment-4.png.pagespeed.ic.KD_lCYLjIB.webp" class="rounded float-start" style="padding:0 5px;">
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-black mb-3">Quick links</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-black mb-3">Account</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><a href="#">My Account</a></li>
-                        <li><a href="#">Orders Tracking</a></li>
-                        <li><a href="#">Checkout</a></li>
-                        <li><a href="#">Wishlist</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6 news">
-                    <h5 class="text-black mb-3">Newsletter</h5>
-                    <div class="input-group mb-3">
-                        <div class="two">
-                            <ul class="links ">
-                                <form>
-                                    <input type="email" placeholder="Email">
-                                    <button type="submit ">Subscribe</button>
-                                </form>
-                                <a><i class="fab fa-facebook-f text-black"></i></a>
-                                <a><i class="fab fa-twitter text-black"></i></a>
-                                <a><i class="fab fa-youtube text-black"></i></a>
-                                <a><i class="fab fa-instagram text-black"></i></a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </footer>
-
-
-    <!-- Copyright -->
-    <div class="text-center p-3 foot" style="background-color: rgba(0, 0, 0, 0.2);">
-        Copyright &copy; 2022 All rights reserved | This template is made with
-        <i class="fa fa-heart " aria-hidden="true "></i> by <a href="# " target="_blank ">Murad</a>
-    </div>
     <!-- Copyright -->
     <script src="js/up.js"></script>
     <script src="js/app.js"></script>
