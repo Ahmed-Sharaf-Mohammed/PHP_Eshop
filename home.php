@@ -1,25 +1,26 @@
 <?php 
 require_once "header.php"; 
 require_once "connect.php"; 
+
 if(isset($_SESSION["userID"]) && isset($_COOKIE['cookie'])){
     $userID=$_SESSION["userID"];
-    foreach ($_COOKIE['cookie'] as $name => $value) {
-      $selectStmt="select * from cart where itemID='$name' and userID='$userID'";
-      $selectRes=$connect->query($selectStmt);
-      
-      if($selectRes->num_rows==0){
-        $insertCart="insert into cart (itemID,quantity,userID) values
-        ('$name','$value','$userID')";
-        $res=$connect->query( $insertCart);
-      }
-      else{
-      
-        $updateStmt="update cart set quantity=quantity+'$value' where itemID='$name' and userID='$userID'";
-        $updateRes=$connect->query( $updateStmt);
-      }
-      setcookie("cookie[$name]", null);
-    }
- 
+    
+        foreach ($_COOKIE['cookie'] as $name => $value) {
+            $selectStmt="select * from cart where itemID='$name' and userID='$userID'";
+            $selectRes=$connect->query($selectStmt);
+            
+            if($selectRes->num_rows==0){
+              $insertCart="insert into cart (itemID,quantity,userID) values
+              ('$name','$value','$userID')";
+              $res=$connect->query( $insertCart);
+            }
+            else{
+            
+              $updateStmt="update cart set quantity=quantity+'$value' where itemID='$name' and userID='$userID'";
+              $updateRes=$connect->query( $updateStmt);
+            }
+            setcookie("cookie[$name]", null);
+          }
   }
 ?>
 <html>
@@ -28,13 +29,7 @@ if(isset($_SESSION["userID"]) && isset($_COOKIE['cookie'])){
         <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
         <link rel="stylesheet" type="text/css" href="css/main.css">
     </head>
-
-
     <body>
-
-
-
-
 <div class="banner"><div class="banner-left"><img src="img/xhero_man.png.pagespeed.ic.cN86RxAvqq.webp"></div>
 <div class="banner-right">
     <h2>60% discounts</h2>

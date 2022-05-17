@@ -19,8 +19,8 @@
         <li><a href="home.php">Home</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="men.php">Men</a></li>
-        <li><a href="women.php">Women</a></li>
+        <li><a href="addItems.php?catID=1">Men</a></li>
+        <li><a href="addItems.php?catID=2">Women</a></li>
 
         <li><a href="#">Contact</a></li>
         <li> <div class="dropdown">
@@ -51,8 +51,8 @@
         <li><a href="home.php">Home</a></li>
         <li><a href="#">About Us</a></li>
         <li><a href="#">Blog</a></li>
-        <li><a href="men.php">Men</a></li>
-        <li><a href="women.php">Women</a></li>
+        <li><a href="addItems.php?catID=1">Men</a></li>
+        <li><a href="addItems.php?catID=2">Women</a></li>
        <li> <a href="cart.php">cart</a></li>
         <li><a href="#">Contact</a></li>
         
@@ -62,10 +62,7 @@
 </div>
 
 <div class="search-products"><input type="search"placeholder="search products"></div>
-<!--<div class="header-3-icon1"><i class="far fa-heart"></i></div>
-<div class="notify1"><p>02</p></div>
-<div class="header-3-icon2"><i class="fas fa-shopping-cart"></i></div>
-<div class="notify2"><p>02</p></div> -->
+
 <a href="sign-in.php" class="sign-in"><p>sign in</p></a>
 </div>
 
